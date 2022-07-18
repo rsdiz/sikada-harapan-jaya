@@ -25,8 +25,8 @@
                         </div>
                     </div>
                     <?php
-                    $query = "SELECT `no_kk`, count(`no_kk`) as kk
-                    FROM `tb_kk`";
+                    $query = "SELECT `no_kartu_keluarga`, count(`no_kartu_keluarga`) as kk
+                    FROM `kartu_keluarga`";
                     $getPen = $this->db->query($query)->row_array();
                     ?>
                     <h4 class="font-weight-bold text-info"><?= $getPen['kk']; ?></h4>
@@ -50,7 +50,7 @@
                     </div>
                     <?php
                     $query = "SELECT `nik`, count(`nik`) as penduduk
-                    FROM `tb_pend`";
+                    FROM `penduduk`";
                     $getPen = $this->db->query($query)->row_array();
                     ?>
                     <h4 class="font-weight-bold text-primary"><?= $getPen['penduduk']; ?></h4>
@@ -73,8 +73,8 @@
                         </div>
                     </div>
                     <?php
-                    $query = "SELECT `id_kk`, count(`id_kk`) as lahir
-                    FROM `tb_kelahiran`";
+                    $query = "SELECT `id_kartu_keluarga`, count(`id_kartu_keluarga`) as lahir
+                    FROM `kelahiran`";
                     $getPen = $this->db->query($query)->row_array();
                     ?>
                     <h4 class="font-weight-bold text-success"><?= $getPen['lahir']; ?></h4>
@@ -97,8 +97,8 @@
                         </div>
                     </div>
                     <?php
-                    $query = "SELECT `id_pend`, count(`id_pend`) as kematian
-                    FROM `tb_kematian`";
+                    $query = "SELECT `id_penduduk`, count(`id_penduduk`) as kematian
+                    FROM `kematian`";
                     $getPen = $this->db->query($query)->row_array();
                     ?>
                     <h4 class="font-weight-bold text-warning"><?= $getPen['kematian']; ?></h4>
@@ -121,8 +121,8 @@
                         </div>
                     </div>
                     <?php
-                    $query = "SELECT `id_pend`, count(`id_pend`) as pindah
-                    FROM `tb_pindahdomisili`";
+                    $query = "SELECT `id_penduduk`, count(`id_penduduk`) as pindah
+                    FROM `pindah_domisili`";
                     $getPen = $this->db->query($query)->row_array();
                     ?>
                     <h4 class="font-weight-bold text-secondary"><?= $getPen['pindah']; ?></h4>

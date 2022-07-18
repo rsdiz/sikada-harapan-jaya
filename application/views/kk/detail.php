@@ -65,14 +65,14 @@
                             foreach ($kk as $ak) { ?> -->
                     <tr>
                         <td><?= $no++; ?></td>
-                        <td><?= $kk['no_kk']; ?></td>
+                        <td><?= $kk['no_kartu_keluarga']; ?></td>
                         <!-- <td><?= $kk['nik']; ?></td> -->
                         <td><?= $kk['nama_kepala']; ?></td>
                         <!-- <td><?= $kk['status']; ?></td> -->
                         <td>
-                            <a href="<?= base_url('ak/detail/' . $kk['id_kk']); ?>"> <button type="button" class="btn btn-info" title="Detail"><i class="fas fa-user"></i></button></a>
-                            <a href="<?= base_url('ak/ubah/' . $kk['id_kk']); ?>"><button type="button" class="btn btn-success" title="Ubah"><i class="fas fa-edit"></i></button></a>
-                            <a href="<?= base_url('ak/hapus/' . $kk['id_kk']); ?>"><button type="button" class="btn btn-danger" title="Hapus" onclick="return confirm('Yakin hapus ?');"><i class="fas fa-trash-alt"></i></button></a>
+                            <a href="<?= base_url('ak/detail/' . $kk['id_kartu_keluarga']); ?>"> <button type="button" class="btn btn-info" title="Detail"><i class="fas fa-user"></i></button></a>
+                            <a href="<?= base_url('ak/ubah/' . $kk['id_kartu_keluarga']); ?>"><button type="button" class="btn btn-success" title="Ubah"><i class="fas fa-edit"></i></button></a>
+                            <a href="<?= base_url('ak/hapus/' . $kk['id_kartu_keluarga']); ?>"><button type="button" class="btn btn-danger" title="Hapus" onclick="return confirm('Yakin hapus ?');"><i class="fas fa-trash-alt"></i></button></a>
                         </td>
                     </tr>
 

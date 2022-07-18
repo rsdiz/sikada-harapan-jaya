@@ -18,8 +18,8 @@
                     <div class="table-responsive">
                         <?php
                         $queryKematian = "SELECT *
-                        FROM `tb_pend` JOIN `tb_kematian`
-                        ON `tb_pend`. `id_pend`= `tb_kematian`.`id_pend`
+                        FROM `penduduk` JOIN `kematian`
+                        ON `penduduk`. `id_penduduk`= `kematian`.`id_penduduk`
                         ";
                         $kematian = $this->db->query($queryKematian)->result_array();
                         ?>

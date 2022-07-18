@@ -11,7 +11,7 @@ class Superadmin extends CI_Controller
     public function index()
     {
         $data['title'] = 'Dasboard';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
@@ -25,7 +25,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Data Penduduk';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['penduduk'] = $this->SuperAdmin_model->getAllPenduduk();
@@ -44,7 +44,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Data Kartu Keluarga';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kk'] = $this->SuperAdmin_model->getAllKK();
@@ -63,7 +63,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Data Kelahiran';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kelahiran'] = $this->SuperAdmin_model->getAllKelahiran();
@@ -79,7 +79,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Data Kematian';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kematian'] = $this->SuperAdmin_model->getAllKematian();
@@ -97,7 +97,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Data Pindah Domisili';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['pindahdomisili'] = $this->SuperAdmin_model->getAllPindahDomisili();
@@ -113,7 +113,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Data Anggota KK';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();;
         $data['ak'] = $this->SuperAdmin_model->getAllAK($id_kk);
         $data['anggota'] = $this->SuperAdmin_model->getAllAnggota($id_kk);
@@ -132,7 +132,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Laporan Penduduk';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['laporan'] = $this->SuperAdmin_model->getAllLaporanPenduduk();
@@ -148,7 +148,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Laporan Kartu Keluarga';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kk'] = $this->SuperAdmin_model->getAllLaporanKK();
@@ -164,7 +164,7 @@ class Superadmin extends CI_Controller
 
     // {
     //     $data['title'] = 'Laporan Penduduk';
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['laporan'] = $this->SuperAdmin_model->getAllLaporanKelahiran();
@@ -218,7 +218,7 @@ class Superadmin extends CI_Controller
         $data['option_tahun'] = $this->SuperAdmin_model->option_tahun();
 
         $data['title'] = 'Laporan Kelahiran';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         // $data['laporan'] = $this->Laporan_model->getAllLaporanKelahiran();
@@ -281,7 +281,7 @@ class Superadmin extends CI_Controller
 
     {
         $data['title'] = 'Laporan Penduduk';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['pindah'] = $this->SuperAdmin_model->getAllLaporanPindah();
@@ -300,7 +300,7 @@ class Superadmin extends CI_Controller
 
     // {
     //     $data['title'] = 'Laporan Penduduk';
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['meninggal'] = $this->SuperAdmin_model->getAllLaporanKematian();
@@ -354,7 +354,7 @@ class Superadmin extends CI_Controller
         $data['option_tahun'] = $this->SuperAdmin_model->option_tahun();
 
         $data['title'] = 'Laporan Kematian';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         // $data['laporan'] = $this->Laporan_model->getAllLaporanKelahiran();
@@ -445,7 +445,7 @@ class Superadmin extends CI_Controller
 
     public function detail($nik)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Detail Data Penduduk';

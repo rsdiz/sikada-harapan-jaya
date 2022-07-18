@@ -12,7 +12,7 @@ class Profil extends CI_Controller
 
     {
         $data['title'] = 'profil';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);

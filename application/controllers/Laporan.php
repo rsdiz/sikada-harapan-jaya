@@ -13,7 +13,7 @@ class Laporan extends CI_Controller
 
     {
         $data['title'] = 'Laporan Penduduk';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
 
@@ -66,7 +66,7 @@ class Laporan extends CI_Controller
 
     {
         $data['title'] = 'Laporan Kartu Keluarga';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kk'] = $this->Laporan_model->getAllLaporanKK();
@@ -91,7 +91,7 @@ class Laporan extends CI_Controller
 
     // {
     //     $data['title'] = 'Laporan Penduduk';
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['laporan'] = $this->Laporan_model->getAllLaporanKelahiran();
@@ -151,7 +151,7 @@ class Laporan extends CI_Controller
         $data['option_tahun'] = $this->Laporan_model->option_tahun();
 
         $data['title'] = 'Laporan Kelahiran';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         // $data['laporan'] = $this->Laporan_model->getAllLaporanKelahiran();
@@ -214,7 +214,7 @@ class Laporan extends CI_Controller
 
     {
         $data['title'] = 'Laporan Penduduk';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['pindah'] = $this->Laporan_model->getAllLaporanPindah();
@@ -239,7 +239,7 @@ class Laporan extends CI_Controller
 
     // {
     //     $data['title'] = 'Laporan Penduduk';
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['meninggal'] = $this->Laporan_model->getAllLaporanKematian();
@@ -299,7 +299,7 @@ class Laporan extends CI_Controller
         $data['option_tahun'] = $this->Laporan_model->option_tahun();
 
         $data['title'] = 'Laporan Kematian';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         // $data['laporan'] = $this->Laporan_model->getAllLaporanKelahiran();

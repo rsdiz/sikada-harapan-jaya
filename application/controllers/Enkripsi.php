@@ -14,7 +14,7 @@ class Enkripsi extends CI_Controller
 
     {
         $data['title'] = 'Enkripsi';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['enkripsi'] = $this->Enkripsi_model->getAllEnkripsi();
@@ -33,7 +33,7 @@ class Enkripsi extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             redirect('enkripsi');
         } else {
-            $user = $this->db->get_where('tb_user', ['email' =>
+            $user = $this->db->get_where('users', ['email' =>
             $this->session->userdata('email')])->row_array();
             $key = $this->input->post('password');
             $bin_ciphertext = "";
@@ -137,7 +137,7 @@ class Enkripsi extends CI_Controller
     public function process()
     {
         $data['title'] = 'Enkripsi';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['enkripsi'] = $this->Enkripsi_model->getAllEnkripsi();
@@ -147,7 +147,7 @@ class Enkripsi extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             redirect('enkripsi');
         } else {
-            $user = $this->db->get_where('tb_user', ['email' =>
+            $user = $this->db->get_where('users', ['email' =>
             $this->session->userdata('email')])->row_array();
             $key = $this->input->post('password');
             $bin_ciphertext = "";

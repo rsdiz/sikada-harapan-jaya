@@ -13,7 +13,7 @@ class Kematian extends CI_Controller
 
     {
         $data['title'] = 'Data Kematian';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kematian'] = $this->Kematian_model->getAllKematian();
@@ -27,7 +27,7 @@ class Kematian extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Kematian';
@@ -51,7 +51,7 @@ class Kematian extends CI_Controller
 
     public function hapus($id_kematian)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->Kematian_model->hapusDataKematian($id_kematian);
@@ -61,7 +61,7 @@ class Kematian extends CI_Controller
 
     // public function detail($id_kelahiran)
     // {
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['title'] = 'Detail Data Kelahiran';
@@ -75,7 +75,7 @@ class Kematian extends CI_Controller
 
     public function ubah($id_kematian)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['kematian'] = $this->Kematian_model->getKematianById($id_kematian);
         $data['title'] = 'Form Edit Data Kematian';

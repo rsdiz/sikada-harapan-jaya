@@ -85,7 +85,7 @@
                     foreach ($anggota as $ak) { ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $ak['no_kk']; ?></td>
+                            <td><?= $ak['no_kartu_keluarga']; ?></td>
                             <td><?= $ak['nik']; ?></td>
                             <td><?= $ak['nama']; ?></td>
                             <td><?= $ak['hubungan']; ?></td>

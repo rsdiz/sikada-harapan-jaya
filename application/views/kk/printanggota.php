@@ -34,7 +34,7 @@
         <!-- <table class="tb1">
             <tr>
                 <td>No KK</td>
-                <td><?= $ak['no_kk']; ?></td>
+                <td><?= $ak['no_kartu_keluarga']; ?></td>
             </tr>
             <tr>
                 <td>Nama Kepala</td>
@@ -47,7 +47,7 @@
         </table> -->
     </center>
     <p style="text-align:center">
-    <p>No KK : <?= $ak['no_kk']; ?></p>
+    <p>No KK : <?= $ak['no_kartu_keluarga']; ?></p>
     </p>
     <p style="text-align:center">
     <p>Kepala Keluarga : <?= $ak['nama_kepala']; ?></p>
@@ -70,7 +70,7 @@
         foreach ($anggota as $lk) { ?>
             <tr>
                 <td><?= $no++; ?></td>
-                <!-- <td><?= $lk['no_kk']; ?></td>
+                <!-- <td><?= $lk['no_kartu_keluarga']; ?></td>
                 <td><?= $lk['nama_kepala']; ?></td>
                 <td><?= $lk['desa']; ?></td> -->
                 <td><?= $lk['nik']; ?></td>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mw-100">
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
@@ -12,7 +12,7 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">SISTEM KEPENDUDUKAN DESA DUKUHMULYO</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">SIKADA HARAPAN JAYA</h1>
                                 </div>
                                 <?= $this->session->flashdata('massage'); ?>
                                 <form class="user" method="POST" action="<?= base_url('auth') ?>">

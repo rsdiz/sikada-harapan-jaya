@@ -19,7 +19,7 @@
                 </div> -->
 
                 <?php
-                $queryKode = "SELECT `id_pend`, `nik`, `nama` FROM `tb_pend` ";
+                $queryKode = "SELECT `id_penduduk`, `nik`, `nama` FROM `penduduk` ";
                 $Id = $this->db->query($queryKode)->result_array();
                 ?>
                 <div class="form-group row">
@@ -28,7 +28,7 @@
                         <select name="id_pend" class="form-control select2bs4" style="width: 100%;">
                             <option selected="selected">-- pilih --</option>
                             <?php foreach ($Id as $id) : ?>
-                                <option value="<?php echo $id['id_pend'] ?>">
+                                <option value="<?php echo $id['id_penduduk'] ?>">
                                     <?php echo $id['nik'] ?>
                                     <?php echo $id['nama'] ?>
                                 </option>

@@ -19,7 +19,7 @@
                 </div>
 
                 <!-- <?php
-                        $queryKode = "SELECT `id_pend`, `nik`, `nama` FROM `tb_pend` ";
+                        $queryKode = "SELECT `id_penduduk`, `nik`, `nama` FROM `penduduk` ";
                         $Id = $this->db->query($queryKode)->result_array();
                         ?> -->
                 <div class="form-group row">

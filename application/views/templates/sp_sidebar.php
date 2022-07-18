@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon ">
             <img src="<?= base_url('assets'); ?>/img/logo.png" width="30px">
         </div>
-        <div class="sidebar-brand-text mx-3">SIKADES</div>
+        <div class="sidebar-brand-text mx-3">SIKADA</div>
     </a>
 
     <!-- Divider -->
@@ -16,11 +16,11 @@
 
     <?php
     $role_id = $this->session->userdata('role_id');
-    $queryMenu = "SELECT `user_menu`.`id`, `menu`
-                    FROM `user_menu` JOIN `user_access_menu`
-                    ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-                    WHERE `user_access_menu`.`role_id` = $role_id
-                    ORDER BY `user_access_menu`.`menu_id` ASC
+    $queryMenu = "SELECT `menu`.`id`, `menu`
+                    FROM `menu` JOIN `access_menu`
+                    ON `menu`.`id` = `access_menu`.`menu_id`
+                    WHERE `access_menu`.`role_id` = $role_id
+                    ORDER BY `access_menu`.`menu_id` ASC
                     ";
     $menu = $this->db->query($queryMenu)->result_array();
     ?>
@@ -37,10 +37,10 @@
         <?php
         $menuId = $m['id'];
         $querySubMenu = "SELECT *
-                        FROM `user_sub_menu` JOIN `user_menu`
-                        ON `user_sub_menu`. `menu_id`= `user_menu`.`id`
-                        WHERE `user_sub_menu`.`menu_id` = $menuId
-                        AND `user_sub_menu`.`is_active` = 1
+                        FROM `sub_menu` JOIN `menu`
+                        ON `sub_menu`. `menu_id`= `menu`.`id`
+                        WHERE `sub_menu`.`menu_id` = $menuId
+                        AND `sub_menu`.`is_active` = 1
                         ";
         $subMenu = $this->db->query($querySubMenu)->result_array();
         ?>

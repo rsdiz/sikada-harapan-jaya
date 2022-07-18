@@ -13,7 +13,7 @@ class Pengguna extends CI_Controller
 
     {
         $data['title'] = 'Pengguna Sistem';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['pengguna'] = $this->Pengguna_model->getAllPengguna();
@@ -26,7 +26,7 @@ class Pengguna extends CI_Controller
     }
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Pengguna Sistem';
@@ -51,7 +51,7 @@ class Pengguna extends CI_Controller
 
     public function hapus($id_user)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->Pengguna_model->hapusDataPengguna($id_user);
@@ -61,7 +61,7 @@ class Pengguna extends CI_Controller
 
     // public function detail($id_user)
     // {
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['title'] = 'Detail Data Pe';
@@ -75,7 +75,7 @@ class Pengguna extends CI_Controller
 
     public function ubah($id_user)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['pengguna'] = $this->Pengguna_model->getPenggunaById($id_user);
         $data['title'] = 'Form Edit Data Pengguna Sistem';

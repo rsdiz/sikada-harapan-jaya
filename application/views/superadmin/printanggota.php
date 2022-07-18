@@ -50,7 +50,7 @@
         foreach ($anggota as $lk) { ?>
             <tr>
                 <td><?= $no++; ?></td>
-                <!-- <td><?= $lk['no_kk']; ?></td>
+                <!-- <td><?= $lk['no_kartu_keluarga']; ?></td>
                 <td><?= $lk['nama_kepala']; ?></td>
                 <td><?= $lk['desa']; ?></td> -->
                 <td><?= $lk['nik']; ?></td>

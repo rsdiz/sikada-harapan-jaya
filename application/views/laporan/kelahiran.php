@@ -100,7 +100,7 @@
                                         <td><?= $lp['tgl_lahir']; ?></td>
                                         <td><?= $lp['jk']; ?></td>
                                         <td><?= $lp['nama_kepala']; ?></td>
-                                        <td><?= $lp['no_kk']; ?></td>
+                                        <td><?= $lp['no_kartu_keluarga']; ?></td>
                                     </tr>
                             <?php }
                             }

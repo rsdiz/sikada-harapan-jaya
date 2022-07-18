@@ -32,7 +32,7 @@
                         foreach ($kk as $kk) { ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $kk['no_kk']; ?></td>
+                                <td><?= $kk['no_kartu_keluarga']; ?></td>
                                 <td><?= $kk['nama_kepala']; ?></td>
                                 <td><?= $kk['desa']; ?></td>
                                 <td><?= $kk['rt']; ?></td>
@@ -67,7 +67,7 @@
                     foreach ($kk as $kk) { ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $kk['no_kk']; ?></td>
+                            <td><?= $kk['no_kartu_keluarga']; ?></td>
                             <td><?= $kk['nama_kepala']; ?></td>
                             <td><?= $kk['desa']; ?></td>
                             <td><?= $kk['rt']; ?></td>

@@ -78,8 +78,8 @@
                 <!-- <a href="<?= base_url('superadmin/printkematian'); ?>"><button type="button" class="btn btn-danger" title="Print" onclick="return confirm('Yakin Cetak ?');"><i class="fas fa-print"></i> Cetak</button></a> -->
                 <?php
                 $queryKematian = "SELECT *
-                        FROM `tb_pend` JOIN `tb_kematian`
-                        ON `tb_pend`. `id_pend`= `tb_kematian`.`id_pend`
+                        FROM `penduduk` JOIN `kematian`
+                        ON `penduduk`. `id_penduduk`= `kematian`.`id_penduduk`
                         ";
                 $kematian = $this->db->query($queryKematian)->result_array();
                 ?>

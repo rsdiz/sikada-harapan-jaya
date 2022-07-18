@@ -14,7 +14,7 @@ class Kk extends CI_Controller
 
     {
         $data['title'] = 'Data Kartu Keluarga';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kk'] = $this->KK_model->getAllKK();
@@ -31,7 +31,7 @@ class Kk extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Kartu Keluarga';
@@ -62,7 +62,7 @@ class Kk extends CI_Controller
 
     public function hapus($id_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->KK_model->hapusDataKK($id_kk);
@@ -72,7 +72,7 @@ class Kk extends CI_Controller
 
     public function detail($id_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Detail Data Kartu Keluarga';
@@ -86,7 +86,7 @@ class Kk extends CI_Controller
 
     // public function detailak($no_kk)
     // {
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['title'] = 'Detail Data Anggota Keluarga';
@@ -101,7 +101,7 @@ class Kk extends CI_Controller
 
     public function ubah($id_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['kk'] = $this->KK_model->getKKById($id_kk);
         $data['title'] = 'Form Edit Data Kartu Keluarga';
@@ -137,7 +137,7 @@ class Kk extends CI_Controller
 
     {
         $data['title'] = 'Data Anggota KK';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();;
         $data['ak'] = $this->KK_model->getAllAK($id_kk);
         $data['anggota'] = $this->KK_model->getAllAnggota($id_kk);
@@ -154,7 +154,7 @@ class Kk extends CI_Controller
 
     public function tambahAK($id_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['ak'] = $this->KK_model->getAllKeluarga($id_kk);
 

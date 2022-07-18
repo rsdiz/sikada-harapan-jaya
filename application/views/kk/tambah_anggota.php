@@ -10,12 +10,12 @@
 
         <!-- form start -->
         <form class="form-horizontal" action="" method="POST">
-            <input type="hidden" name="id_kk" value="<?= $ak['id_kk'] ?>">
+            <input type="hidden" name="id_kk" value="<?= $ak['id_kartu_keluarga'] ?>">
             <div class=" card-body">
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">No KK|Kepala</label>
                     <div class="col-5">
-                        <input type="text" name="no_kk" id="no_kk" class="form-control" placeholder="No KK" value="<?= $ak['no_kk'] ?> " disabled>
+                        <input type="text" name="no_kk" id="no_kk" class="form-control" placeholder="No KK" value="<?= $ak['no_kartu_keluarga'] ?> " disabled>
                         <small class="form-text text-danger"><?= form_error('no_kk')  ?></small>
                     </div>
                     <div class="col-5">
@@ -31,11 +31,11 @@
                         <select name="id_pend" id="id_pend" class="form-control select2bs4" style="width: 100%;">
                             <option selected="selected">-- Penduduk --</option>
                             <?php
-                            $QueryPend = "SELECT * FROM tb_pend";
+                            $QueryPend = "SELECT * FROM penduduk";
                             $Id = $this->db->query($QueryPend)->result_array();
                             ?>
                             <?php foreach ($Id as $id) : ?>
-                                <option value="<?php echo $id['id_pend'] ?>">
+                                <option value="<?php echo $id['id_penduduk'] ?>">
                                     <?php echo $id['nik'] ?>
                                     <?php echo $id['nama'] ?>
                                 </option>

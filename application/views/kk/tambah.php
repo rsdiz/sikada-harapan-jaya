@@ -13,7 +13,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">No KK</label>
                     <div class="col-sm-10">
-                        <input type="number" name="no_kk" class="form-control" placeholder="No KK" value="<?= set_value('no_kk'); ?>">
+                        <input type="number" name="no_kk" class="form-control" placeholder="No KK" value="<?= set_value('no_kartu_keluarga'); ?>">
                         <small class="form-text text-danger"><?= form_error('no_kk')  ?></small>
                     </div>
                 </div>

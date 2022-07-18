@@ -13,7 +13,7 @@ class Domisili extends CI_Controller
 
     {
         $data['title'] = 'Data Domisili';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['domisili'] = $this->Domisili_model->getAllDomisili();
@@ -27,7 +27,7 @@ class Domisili extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Domisili';
@@ -53,7 +53,7 @@ class Domisili extends CI_Controller
 
     public function hapus($id_domisili)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->Domisili_model->hapusDataDomisili($id_domisili);
@@ -63,7 +63,7 @@ class Domisili extends CI_Controller
 
     // public function detail($id_domisili)
     // {
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['title'] = 'Detail Data Domisili';
@@ -77,7 +77,7 @@ class Domisili extends CI_Controller
 
     public function ubah($id_domisili)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['domisili'] = $this->Domisili_model->getDomisiliById($id_domisili);
         $data['title'] = 'Form Edit Data Domisili';

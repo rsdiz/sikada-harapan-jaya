@@ -13,7 +13,7 @@ class Pindahdomisili extends CI_Controller
 
     {
         $data['title'] = 'Data Pindah Domisili';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['pindahdomisili'] = $this->PindahDomisili_model->getAllPindahDomisili();
@@ -27,7 +27,7 @@ class Pindahdomisili extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Pindah Domisili';
@@ -52,7 +52,7 @@ class Pindahdomisili extends CI_Controller
 
     public function hapus($id_pindah)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->PindahDomisili_model->hapusDataPindahDomisili($id_pindah);
@@ -62,7 +62,7 @@ class Pindahdomisili extends CI_Controller
 
     public function detail($id_pindah)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Detail Data Domisili';
@@ -76,7 +76,7 @@ class Pindahdomisili extends CI_Controller
 
     public function ubah($id_pindah)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['domisili'] = $this->PindahDomisili_model->getPindahDomisiliById($id_pindah);
         $data['title'] = 'Form Edit Data Pindah Domisili';

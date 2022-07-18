@@ -13,7 +13,7 @@ class Penduduk extends CI_Controller
 
     {
         $data['title'] = 'Data Penduduk';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['penduduk'] = $this->Penduduk_model->getAllPenduduk();
@@ -30,7 +30,7 @@ class Penduduk extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Penduduk';
@@ -63,7 +63,7 @@ class Penduduk extends CI_Controller
 
     public function hapus($nik)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->Penduduk_model->hapusDataPenduduk($nik);
@@ -73,7 +73,7 @@ class Penduduk extends CI_Controller
 
     public function detail($nik)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Detail Data Penduduk';
@@ -87,7 +87,7 @@ class Penduduk extends CI_Controller
 
     public function ubah($nik)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['penduduk'] = $this->Penduduk_model->getPendudukById($nik);
         $data['title'] = 'Form Edit Data Penduduk';

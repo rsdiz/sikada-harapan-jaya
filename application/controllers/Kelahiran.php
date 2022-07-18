@@ -13,7 +13,7 @@ class Kelahiran extends CI_Controller
 
     {
         $data['title'] = 'Data Kelahiran';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['kelahiran'] = $this->Kelahiran_model->getAllKelahiran();
@@ -27,7 +27,7 @@ class Kelahiran extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Kelahiran';
@@ -54,7 +54,7 @@ class Kelahiran extends CI_Controller
 
     public function hapus($id_kelahiran)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->Kelahiran_model->hapusDataKelahiran($id_kelahiran);
@@ -64,7 +64,7 @@ class Kelahiran extends CI_Controller
 
     // public function detail($id_kelahiran)
     // {
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['title'] = 'Detail Data Kelahiran';
@@ -78,7 +78,7 @@ class Kelahiran extends CI_Controller
 
     public function ubah($id_kelahiran)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['kelahiran'] = $this->Kelahiran_model->getKelahiranById($id_kelahiran);
         $data['title'] = 'Form Edit Data Kelahiran';

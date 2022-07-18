@@ -13,7 +13,7 @@ class AK extends CI_Controller
 
     {
         $data['title'] = 'Data Anggota KK';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['ak'] = $this->AK_model->getAllAK($data['tb_pend']['id_pend'], $data['tb_anggota']['id_kk']);
@@ -29,7 +29,7 @@ class AK extends CI_Controller
 
     public function tambah()
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Tambah Data Anggota Keluarga';
@@ -60,7 +60,7 @@ class AK extends CI_Controller
 
     public function hapus($no_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->AK_model->hapusDataAnggotaKeluarga($no_kk);
@@ -70,7 +70,7 @@ class AK extends CI_Controller
 
     public function detail($no_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Detail Data Kartu Keluarga';
@@ -84,7 +84,7 @@ class AK extends CI_Controller
 
     public function ubah($no_kk)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['kk'] = $this->KK_model->getKKById($no_kk);
         $data['title'] = 'Form Edit Data Kartu Keluarga';
@@ -120,7 +120,7 @@ class AK extends CI_Controller
 
     {
         $data['title'] = 'Kartu Keluarga';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['anggota'] = $this->AK_model->getAllAK();

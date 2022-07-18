@@ -17,7 +17,7 @@ class Dekripsi extends CI_Controller
 
     {
         $data['title'] = 'Dekripsi';
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['dekripsi'] = $this->Dekripsi_model->getAllDekripsi();
@@ -54,7 +54,7 @@ class Dekripsi extends CI_Controller
 
     public function dekrip($id_file)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $data['title'] = 'Form Dekripsi';
@@ -160,7 +160,7 @@ class Dekripsi extends CI_Controller
 
     // public function dekrip($id_file)
     // {
-    //     $data['user'] = $this->db->get_where('tb_user', ['email' =>
+    //     $data['user'] = $this->db->get_where('users', ['email' =>
     //     $this->session->userdata('email')])->row_array();
 
     //     $data['title'] = 'Form Dekripsi';
@@ -175,7 +175,7 @@ class Dekripsi extends CI_Controller
 
     public function hapus($id_file)
     {
-        $data['user'] = $this->db->get_where('tb_user', ['email' =>
+        $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
         $this->Dekripsi_model->hapusDataDekripsi($id_file);

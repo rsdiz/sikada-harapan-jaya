@@ -85,14 +85,14 @@
                     foreach ($anggota as $ak) { ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $ak['no_kk']; ?></td>
+                            <td><?= $ak['no_kartu_keluarga']; ?></td>
                             <td><?= $ak['nik']; ?></td>
                             <td><?= $ak['nama']; ?></td>
                             <td><?= $ak['hubungan']; ?></td>
                             <td>
-                                <!-- <a href="<?= base_url('ak/detail/' . $ak['no_kk']); ?>"> <button type="button" class="btn btn-info" title="Detail"><i class="fas fa-user"></i></button></a>
-                                <a href="<?= base_url('ak/ubah/' . $ak['no_kk']); ?>"><button type="button" class="btn btn-success" title="Ubah"><i class="fas fa-edit"></i></button></a> -->
-                                <!-- <a href="<?= base_url('ak/print/' . $ak['id_kk']); ?>"><button type="button" class="btn btn-warning" title="Print"><i class="fas fa-print"></i></button></a> -->
+                                <!-- <a href="<?= base_url('ak/detail/' . $ak['no_kartu_keluarga']); ?>"> <button type="button" class="btn btn-info" title="Detail"><i class="fas fa-user"></i></button></a>
+                                <a href="<?= base_url('ak/ubah/' . $ak['no_kartu_keluarga']); ?>"><button type="button" class="btn btn-success" title="Ubah"><i class="fas fa-edit"></i></button></a> -->
+                                <!-- <a href="<?= base_url('ak/print/' . $ak['id_kartu_keluarga']); ?>"><button type="button" class="btn btn-warning" title="Print"><i class="fas fa-print"></i></button></a> -->
                                 <a href="<?= base_url('ak/hapus/' . $ak['id_anggota']); ?>"><button type="button" class="btn btn-danger" title="Hapus" onclick="return confirm('Yakin hapus ?');"><i class="fas fa-trash-alt"></i></button></a>
                             </td>
                         </tr>

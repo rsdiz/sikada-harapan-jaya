@@ -18,8 +18,8 @@
                     <div class="table-responsive">
                         <?php
                         $queryKelahiran = "SELECT *
-                        FROM `tb_kk` JOIN `tb_kelahiran`
-                        ON `tb_kk`. `id_kk`= `tb_kelahiran`.`id_kk`
+                        FROM `kartu_keluarga` JOIN `kelahiran`
+                        ON `kartu_keluarga`. `id_kartu_keluarga`= `kelahiran`.`id_kartu_keluarga`
                         ";
                         $kelahiran = $this->db->query($queryKelahiran)->result_array();
                         ?>
@@ -47,7 +47,7 @@
                                         <td><?= $klhrn['nama']; ?></td>
                                         <td><?= $klhrn['tgl_lahir']; ?></td>
                                         <td><?= $klhrn['jk']; ?></td>
-                                        <td><?= $klhrn['no_kk']; ?></td>
+                                        <td><?= $klhrn['no_kartu_keluarga']; ?></td>
 
                                     </tr>
                                 <?php } ?>

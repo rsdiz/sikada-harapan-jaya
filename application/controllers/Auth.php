@@ -26,7 +26,7 @@ class Auth extends CI_Controller
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-        $user = $this->db->get_where('tb_user', ['email' => $email])->row_array();
+        $user = $this->db->get_where('users', ['email' => $email])->row_array();
         if ($user) {
 
             if ($user['is_active'] == 1) {
@@ -63,7 +63,7 @@ class Auth extends CI_Controller
     public function register()
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tb_user.email]');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]');
         $this->form_validation->set_rules('password1', 'Password1', 'required|trim|min_length[6]|matches[password2]', [
             'matches' => 'Password tidak sama',
             'min_length' => 'Password terlalu pendek',
@@ -85,7 +85,7 @@ class Auth extends CI_Controller
                 'is_active' => 1,
                 'date_created' => time()
             ];
-            $this->db->insert('tb_user', $data);
+            $this->db->insert('users', $data);
             $this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">
             Selamat, Anda sudah terdaftar. Silakan login
           </div>');
