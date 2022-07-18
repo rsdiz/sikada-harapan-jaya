@@ -3,7 +3,7 @@ class Penduduk_model extends CI_Model
 {
     public function getAllPenduduk()
     {
-        return $this->db->get('tb_pend')->result_array();
+        return $this->db->get('penduduk')->result_array();
     }
 
     public function cariDataPenduduk()
@@ -15,7 +15,7 @@ class Penduduk_model extends CI_Model
         $this->db->or_like('rw', $keyword);
         $this->db->or_like('agama', $keyword);
         $this->db->or_like('jk', $keyword);
-        return $this->db->get('tb_pend')->result_array();
+        return $this->db->get('penduduk')->result_array();
     }
 
     public function tambahDataPenduduk()
@@ -35,19 +35,19 @@ class Penduduk_model extends CI_Model
             "pekerjaan" => $this->input->post('pekerjaan', true),
         ];
 
-        $this->db->insert('tb_pend', $data);
+        $this->db->insert('penduduk', $data);
         redirect('penduduk');
     }
 
     public function hapusDataPenduduk($nik)
     {
         $this->db->where('nik', $nik);
-        $this->db->delete('tb_pend');
+        $this->db->delete('penduduk');
     }
 
     public function getPendudukById($nik)
     {
-        return $this->db->get_where('tb_pend', ['nik' => $nik])->row_array();
+        return $this->db->get_where('penduduk', ['nik' => $nik])->row_array();
     }
 
     public function ubahDataPenduduk()
@@ -67,7 +67,7 @@ class Penduduk_model extends CI_Model
             "pekerjaan" => $this->input->post('pekerjaan', true),
         ];
         $this->db->where('nik', $this->input->post('nik'));
-        $this->db->update('tb_pend', $data);
+        $this->db->update('penduduk', $data);
         redirect('penduduk');
     }
 }

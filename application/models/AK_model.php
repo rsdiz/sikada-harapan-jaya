@@ -1,28 +1,28 @@
 <?php
 class AK_model extends CI_Model
 {
-    public function getAllAK($id_pend, $id_kk)
+    public function getAllAK($id_penduduk, $id_kartu_keluarga)
     {
         $this->db->select('*');
         $this->db->join(
-            'tb_pend',
-            'tb_pend.id_pend=anggota.id_pend',
+            'penduduk',
+            'penduduk.id_penduduk=anggota.id_penduduk',
             'inner'
         );
         $this->db->join(
             'anggota',
-            'tb_kk.id_kk=anggota.id_kk',
+            'kartu_keluarga.id_kartu_keluarga=anggota.id_kartu_keluarga',
             'inner'
         );
-        $this->db->where('tb_pend.id_pend', $id_pend);
-        $this->db->where('tb_kk.id_kk', $id_kk);
-        return $this->db->get('tb_ak')->row_array();
+        $this->db->where('penduduk.id_penduduk', $id_penduduk);
+        $this->db->where('kartu_keluarga.id_kartu_keluarga', $id_kartu_keluarga);
+        return $this->db->get('anggota')->row_array();
     }
 
-    public function hapusDataAnggotaKeluarga($no_kk)
+    public function hapusDataAnggotaKeluarga($no_kartu_keluarga)
     {
-        $this->db->where('no_kk', $no_kk);
-        $this->db->delete('tb_kk');
+        $this->db->where('no_kartu_keluarga', $no_kartu_keluarga);
+        $this->db->delete('kartu_keluarga');
     }
 
     public function getAllprintanggota()

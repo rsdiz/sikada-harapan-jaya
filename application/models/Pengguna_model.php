@@ -5,11 +5,11 @@ class Pengguna_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->join(
-            'user_role',
-            'tb_user.role_id=user_role.id_role',
+            'role',
+            'users.role_id=role.id_role',
             'inner'
         );
-        return $this->db->get('tb_user')->result_array();
+        return $this->db->get('users')->result_array();
     }
 
     public function tambahDataPengguna()
@@ -26,19 +26,19 @@ class Pengguna_model extends CI_Model
         // var_dump($data);
         // die();
 
-        $this->db->insert('tb_user', $data);
+        $this->db->insert('users', $data);
         redirect('pengguna');
     }
 
     public function hapusDataPengguna($id_user)
     {
         $this->db->where('id_user', $id_user);
-        $this->db->delete('tb_user');
+        $this->db->delete('users');
     }
 
     public function getPenggunaById($id_user)
     {
-        return $this->db->get_where('tb_user', ['id_user' => $id_user])->row_array();
+        return $this->db->get_where('users', ['id_user' => $id_user])->row_array();
     }
 
     public function ubahDataPengguna()
@@ -50,7 +50,7 @@ class Pengguna_model extends CI_Model
             "password" => $this->input->post('password', true),
         ];
         $this->db->where('id_user', $this->input->post('id_user'));
-        $this->db->update('tb_user', $data);
+        $this->db->update('users', $data);
         redirect('pengguna');
     }
 }
