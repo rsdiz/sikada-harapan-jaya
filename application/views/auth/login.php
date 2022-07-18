@@ -12,10 +12,17 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">SIKADA HARAPAN JAYA</h1>
+                                    <h1 class="h2 font-weight-bold text-gray-900 mb-4">SIKADA HARAPAN JAYA</h1>
                                 </div>
                                 <?= $this->session->flashdata('massage'); ?>
                                 <form class="user" method="POST" action="<?= base_url('auth') ?>">
+                                    <div class="form-group">
+                                        <div class="row ">
+                                            <div class="col-12 text-center">
+                                                <p class="h5 text-gray-900 mb-4">SILAHKAN MASUK</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row ">
                                             <div class="col-3">

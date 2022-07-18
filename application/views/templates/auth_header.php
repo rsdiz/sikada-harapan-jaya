@@ -16,14 +16,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?= base_url('assets'); ?>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets'); ?>/css/sb-admin-2.css?version=<?php echo filemtime('./assets/css/sb-admin-2.css'); ?>" rel="stylesheet">
 
 </head>
 
 <body class="">
     <style>
         body {
-            background-image: url('assets/img/background.jfif');
+            background-color: #F46D88;
             background-size: cover;
             background-repeat: no-repeat;
         }
