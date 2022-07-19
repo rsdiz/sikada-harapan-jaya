@@ -45,7 +45,7 @@
 
 
             </div>
-            <input type="hidden" name="tanggal" value="<?= $data['tanggal'] ?>">
+            <input type="hidden" name="tanggal" value="<?= date('d-m-Y', strtotime($data['createdAt'])); ?>">
 
             <!-- <div class="card-footer"> -->
             <button type="submit" class="btn btn-info ml-4 mb-4"><i class="fas fa-unlock"></i> Dekripsi</button>

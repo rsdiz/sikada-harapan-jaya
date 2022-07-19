@@ -45,7 +45,7 @@ class Pengguna extends CI_Controller
             $this->Pengguna_model->tambahDataPengguna();
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
     		Berhasil</div>');
-            redirect('domisili');
+            redirect('pengguna');
         }
     }
 

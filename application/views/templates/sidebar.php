@@ -4,7 +4,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon ">
-            <img src="<?= base_url('assets'); ?>/img/logo.png" width="30px">
+            <img src="<?= base_url('assets'); ?>/img/data-encryption.png" width="30px">
         </div>
         <div class="sidebar-brand-text mx-3">SIKADA</div>
     </a>
@@ -58,57 +58,8 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        Keamanan Data
     </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKelolaData" aria-expanded="true" aria-controls="collapseKelolaData">
-            <i class="fas fa-fw fa-book"></i>
-            <span>Kelola Data</span>
-        </a>
-        <div id="collapseKelolaData" class="collapse" aria-labelledby="headingKelolaData" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('kk'); ?>">Data Kartu Keluarga</a>
-                <a class="collapse-item" href="<?= base_url('penduduk'); ?>">Data Penduduk</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSirkulasiPenduduk" aria-expanded="true" aria-controls="collapseSirkulasiPenduduk">
-            <i class="fas fa-fw fa-sync"></i>
-            <span>Sirkulasi Penduduk</span>
-        </a>
-        <div id="collapseSirkulasiPenduduk" class="collapse" aria-labelledby="headingSirkulasiPenduduk" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('kelahiran'); ?>">Data Kelahiran</a>
-                <a class="collapse-item" href="<?= base_url('kematian'); ?>">Data Kematian</a>
-                <!-- <a class="collapse-item" href="<?= base_url('domisili'); ?>">Data Domisili</a> -->
-                <a class="collapse-item" href="<?= base_url('pindahdomisili'); ?>">Data Pindah Domisili</a>
-            </div>
-        </div>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="true" aria-controls="collapseLaporan">
-            <i class="fas fa-fw fa-clipboard"></i>
-            <span>Laporan</span>
-        </a>
-        <div id="collapseLaporan" class="collapse" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('laporan/kk'); ?>">Laporan KK</a>
-                <a class="collapse-item" href="<?= base_url('laporan'); ?>">Laporan Penduduk</a>
-                <a class="collapse-item" href="<?= base_url('laporan/kelahiran'); ?>">Laporan Kelahiran</a>
-                <a class="collapse-item" href="<?= base_url('laporan/kematian') ?>">Laporan Kematian</a>
-                <!-- <a class="collapse-item" href="buttons.html">Laporan Domisili</a> -->
-                <a class="collapse-item" href="<?= base_url('laporan/pindah') ?>">Laporan Pindah Domisili</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('enkripsi') ?>">

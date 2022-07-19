@@ -19,10 +19,6 @@
                     </div>
                 </div>
 
-                <!-- <?php
-                        $queryKode = "SELECT `id_penduduk`, `nik`, `nama` FROM `penduduk` ";
-                        $Id = $this->db->query($queryKode)->result_array();
-                        ?> -->
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">

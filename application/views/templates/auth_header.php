@@ -18,6 +18,8 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets'); ?>/css/sb-admin-2.css?version=<?php echo filemtime('./assets/css/sb-admin-2.css'); ?>" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="<?= base_url('assets'); ?>/favicon.ico">
 </head>
 
 <body class="">

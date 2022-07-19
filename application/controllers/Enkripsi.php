@@ -89,32 +89,28 @@ class Enkripsi extends CI_Controller
                     // Pindah file pdf ke folder file decript
                     if ($this->upload->do_upload('file')) {
                         if (write_file(FCPATH . './assets/file_chipertext/' . $filename_enc, $ciphertext)) {
-                            echo "Berhasil write chipertext file";
+                            // echo "Berhasil write chipertext file";
 
                             if (write_file(FCPATH . './assets/file_encript/' . $filename_enc, $bin_ciphertext)) {
-                                echo "BErhasil write file";
-
+                                
                                 $data = array(
                                     'id_user' => $user['id_user'],
                                     'nama_file' => $filename_pdf,
                                     'nama_file_enkrip' => $filename_enc,
-                                    'password' => $this->input->post('password'),
-                                    'tanggal' => mdate($format)
+                                    'password' => $this->input->post('password')
                                 );
-
+                                
                                 $this->Enkripsi_model->tambahDataEnkripsi($data);
-
+                                
+                                echo "<script>alert('Data Berhasil Dienkripsi!')</script>";
                                 echo "<script>window.location.href = '/dekripsi'</script>";
                             } else {
-                                echo "Gagal write file";
+                                echo "<script>alert('Data Gagal Disimpan!')</script>";
                             }
                         } else {
-                            echo "gagal write file chipertext";
+                            echo "<script>alert('Data Gagal Dienkripsi!')</script>";
                         }
-
-                        echo "Berhasil pindah";
                     } else {
-                        echo "Gagal pindah";
                         $error = array('error' => $this->upload->display_errors());
 
                         echo $error['error'];
@@ -183,13 +179,21 @@ class Enkripsi extends CI_Controller
                     }
 
                     $data['proses'] = $tampil_proses;
-                }
 
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/sidebar', $data);
-                $this->load->view('templates/topbar', $data);
-                $this->load->view('enkripsi/proses', $data);
-                $this->load->view('templates/footer');
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/sidebar', $data);
+                    $this->load->view('templates/topbar', $data);
+                    $this->load->view('enkripsi/proses', $data);
+                    $this->load->view('templates/footer');
+                } else {
+                    $data['pesan'] = '<div class="alert alert-danger mt-4" role="alert">File tidak disupport! Silahkan upload file berekstensi PDF!</div>';
+
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/sidebar', $data);
+                    $this->load->view('templates/topbar', $data);
+                    $this->load->view('enkripsi/index', $data);
+                    $this->load->view('templates/footer');
+                }
             } else {
                 redirect('Enkripsi');
             }

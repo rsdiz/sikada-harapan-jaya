@@ -24,7 +24,6 @@
                                     <th>No</th>
                                     <th>Nama Pengguna</th>
                                     <th>Email</th>
-                                    <th>Level</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -35,7 +34,6 @@
                                         <td><?= $no++; ?></td>
                                         <td><?= $peng['nama']; ?></td>
                                         <td><?= $peng['email']; ?></td>
-                                        <td><?= $peng['role']; ?></td>
                                         <td>
                                             <!-- <a href="<?= base_url('domisili/detail/' . $dmsl['id_domisili']); ?>"> <button type="button" class="btn btn-info" title="Detail"><i class="fas fa-user"></i></button></a> -->
                                             <a href="<?= base_url('pengguna/ubah/' . $peng['id_user']); ?>"><button type="button" class="btn btn-success" title="Ubah"><i class="fas fa-edit"></i></button></a>

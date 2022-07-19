@@ -1,9 +1,9 @@
-<div class="container mw-100">
+<div class="container vh-100">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center vh-100">
 
-        <div class="col-lg-6 mt-5">
+        <div class="col-lg-6 my-auto">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
@@ -12,6 +12,7 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
+                                    <img src="<?= base_url('assets') ?>/img/data-encryption.png" alt="SIKADA Harapan Jaya Logo" class="mb-4" width="72px">
                                     <h1 class="h2 font-weight-bold text-gray-900 mb-4">SIKADA HARAPAN JAYA</h1>
                                 </div>
                                 <?= $this->session->flashdata('massage'); ?>
@@ -53,7 +54,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">Lupa Password?</a>
+                                    Belum punya akun? <a href="register">Daftar</a>
                                 </div>
                                 <!-- <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/register'); ?>">Buat Akun Baru ?</a>

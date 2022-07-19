@@ -19,6 +19,7 @@
                             <th>Nama File Awal</th>
                             <th>Nama File Enkripsi</th>
                             <th>Tanggal</th>
+                            <th>Waktu Enkripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -29,7 +30,8 @@
                                 <td><?= $no++; ?></td>
                                 <td><?= $fl['nama_file']; ?></td>
                                 <td><?= $fl['nama_file_enkrip']; ?></td>
-                                <td><?= date('d-m-Y', strtotime($fl['tanggal'])); ?></td>
+                                <td><?= date('d-m-Y', strtotime($fl['createdAt'])); ?></td>
+                                <td><?= date('h:i:s A', strtotime($fl['createdAt'])); ?></td>
                                 <td>
                                     <a href="<?= base_url('dekripsi/dekrip/' . $fl['id_file']); ?>"><button type="submit" class="btn btn-info"><i class="fas fa-unlock"></i> Dekripsi</button></a>
                                     <a href="<?= base_url('dekripsi/download/' . $fl['id_file']); ?>"><button type="button" class="btn btn-success" title="Download"><i class="fas fa-download"></i></button></a>

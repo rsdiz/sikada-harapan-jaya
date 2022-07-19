@@ -6,9 +6,9 @@ class Dekripsi_model extends CI_Model
         return $this->db->get('users')->result_array();
     }
 
-    public function getAllFile()
+    public function getAllFile($id_user)
     {
-        return $this->db->get('file')->result_array();
+        return $this->db->get_where('file', ['id_user' => $id_user])->result_array();
     }
 
     public function getWhereFile($id_file)

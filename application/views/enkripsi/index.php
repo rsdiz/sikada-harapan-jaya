@@ -19,6 +19,7 @@
                     <label class="col-sm-2 col-form-label">Input File</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="file" name="file" id="file">
+                        <?php if (isset($pesan)) echo $pesan ?>
                     </div>
                 </div>
                 <div class="form-group row">

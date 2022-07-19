@@ -21,7 +21,7 @@ class Dekripsi extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['dekripsi'] = $this->Dekripsi_model->getAllDekripsi();
-        $data['file'] = $this->Dekripsi_model->getAllFile();
+        $data['file'] = $this->Dekripsi_model->getAllFile($data['user']['id_user']);
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -87,8 +87,6 @@ class Dekripsi extends CI_Controller
                 $bin_ciphertext = (string) file_get_contents($path);
                 $arr_ciphertext = str_split($bin_ciphertext, 64);
 
-                // echo "<br>" . $bin_ciphertext;
-                // print_r($arr_ciphertext);
                 $desModule = new DES();
 
                 foreach ($arr_ciphertext as $i) {
@@ -97,28 +95,10 @@ class Dekripsi extends CI_Controller
                     $ciphertext .= $desModule->read_bin($i);
                 }
 
-                // echo $decrypt;
-                // echo "<br>" . $plaintext;
-
-                // header('Content-Description: File Transfer');
-                // header('Content-Type: application/octet-stream');
-                // header('Content-Disposition: attachment; filename="' . $data_file['nama_file'] . '"');
-                // header('Expires: 0');
-                // header('Cache-Control: must-revalidate');
-                // header('Pragma: public');
-                // header('Content-Length: ' . filesize('' . $data_file));
-
-                // echo "$plaintext";
-
                 $this->load->library('Pdfgenerator');
                 $dt['plaintext'] = $plaintext;
-                // $this->load->view('Dekripsi/downloadPdf', $dt);
 
                 $new_plaintext = mb_convert_encoding($plaintext, 'UTF-8', 'ASCII');
-
-                // echo $plaintext;
-                // echo "<br>";
-                // echo $new_plaintext;
 
                 $html = ob_get_contents();
                 ob_end_clean();
@@ -131,11 +111,6 @@ class Dekripsi extends CI_Controller
                 $pdfgenerator->stream($data_file['nama_file'], array('Attachment' => 0));
                 exit();
             } else {
-                // echo "Salah password";
-                // $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">
-                //     Password salah
-                //     </div>');
-                // redirect('dekripsi/dekrip/' . $id_file);
                 $data['pesan'] = '<div class="alert alert-danger" role="alert"> Password salah</div>';
 
                 $this->load->view('templates/header', $data);
@@ -144,34 +119,8 @@ class Dekripsi extends CI_Controller
                 $this->load->view('Dekripsi/dekrip', $data);
                 $this->load->view('templates/footer');
             }
-
-            // $data = [
-            //     "nama_file" => $this->input->post('nama_file', true),
-            //     "nama_file_enkrip" => $this->input->post('nama_file_enkrip', true),
-            //     "password" => $this->input->post('password', true),
-            // ];
-            // $this->Dekripsi_model->formDataDekripsi($data);
-            // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            // Berhasil</div>');
-
-            // redirect('dekripsi');
         }
     }
-
-    // public function dekrip($id_file)
-    // {
-    //     $data['user'] = $this->db->get_where('users', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-    //     $data['title'] = 'Form Dekripsi';
-    //     $data['dekripsi'] = $this->Dekripsi_model->getDekripsiById($id_file);
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('templates/sidebar', $data);
-    //     $this->load->view('templates/topbar', $data);
-    //     $this->load->view('dekripsi/dekrip', $data);
-    //     $this->load->view('templates/footer');
-    // }
 
     public function hapus($id_file)
     {

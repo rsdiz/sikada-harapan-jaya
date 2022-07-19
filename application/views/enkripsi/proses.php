@@ -7,10 +7,11 @@
             <div class="card-body">
                 <button onclick='history.back()' type='submit' class='btn btn-info'><i class="fa-solid fa-angles-left"></i></i>Back</button><br><br>
                 <?php
-                foreach ($proses as $data) {
-                    echo $data;
+                if (isset($proses)) {
+                    foreach ($proses as $data) {
+                        echo $data;
+                    }
                 }
-
                 ?>
             </div>
 

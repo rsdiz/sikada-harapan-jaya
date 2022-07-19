@@ -12,7 +12,7 @@
                 <i class="fa fa-bars"></i>
             </button>
 
-            <h5 class="text-light ml-3 text-bold"><strong>SIKADA Harapan Jaya</strong></h5>
+            <h5 class="text-light ml-3 text-bold"><strong>Sistem Keamanan Data Harapan Jaya</strong></h5>
 
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
