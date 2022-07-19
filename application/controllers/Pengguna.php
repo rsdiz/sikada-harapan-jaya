@@ -82,7 +82,7 @@ class Pengguna extends CI_Controller
 
         $this->form_validation->set_rules('nama', 'Nama Pengguna', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('image', 'Image', 'required');
+        // $this->form_validation->set_rules('image', 'Image', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);

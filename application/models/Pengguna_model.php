@@ -47,7 +47,7 @@ class Pengguna_model extends CI_Model
             "nama" => $this->input->post('nama', true),
             "email" => $this->input->post('email', true),
             "image" => $this->input->post('image', true),
-            "password" => $this->input->post('password', true),
+            "password" => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
         ];
         $this->db->where('id_user', $this->input->post('id_user'));
         $this->db->update('users', $data);
