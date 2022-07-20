@@ -103,7 +103,7 @@ class Enkripsi extends CI_Controller
                                 $this->Enkripsi_model->tambahDataEnkripsi($data);
                                 
                                 echo "<script>alert('Data Berhasil Dienkripsi!')</script>";
-                                echo "<script>window.location.href = '/dekripsi'</script>";
+                                echo "<script>window.location.href = '" . base_url() . "/dekripsi'</script>";
                             } else {
                                 echo "<script>alert('Data Gagal Disimpan!')</script>";
                             }
