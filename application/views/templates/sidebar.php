@@ -56,26 +56,6 @@
 
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Keamanan Data
-    </div>
-
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('enkripsi') ?>">
-            <i class="fas fa-fw fa-lock"></i>
-            <span>Enkripsi</span>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('dekripsi') ?>">
-            <i class="fas fa-fw fa-unlock"></i>
-            <span>Dekripsi</span>
-        </a>
-    </li>
-
-    <hr class="sidebar-divider">
-
     <!-- Nav Item - Pages Collapse Menu -->
 
     <li class="nav-item">

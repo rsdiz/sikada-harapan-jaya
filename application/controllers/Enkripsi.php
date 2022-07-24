@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
 class Enkripsi extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model('Enkripsi_model');
+        $this->load->helper('date');
     }
 
     public function index()
@@ -29,6 +29,8 @@ class Enkripsi extends CI_Controller
     public function import()
     {
         $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('no_rt', 'Nomor Rumah Tangga', 'required');
+        $this->form_validation->set_rules('jml_org', 'Jumlah Orang', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             redirect('enkripsi');
@@ -97,13 +99,16 @@ class Enkripsi extends CI_Controller
                                     'id_user' => $user['id_user'],
                                     'nama_file' => $filename_pdf,
                                     'nama_file_enkrip' => $filename_enc,
-                                    'password' => $this->input->post('password')
+                                    'nomor_rt' => $this->input->post('no_rt'),
+                                    'jumlah_orang' => $this->input->post('jml_org'),
+                                    'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                                    'createdAt' => $key
                                 );
                                 
                                 $this->Enkripsi_model->tambahDataEnkripsi($data);
                                 
                                 echo "<script>alert('Data Berhasil Dienkripsi!')</script>";
-                                echo "<script>window.location.href = '" . base_url() . "/dekripsi'</script>";
+                                echo "<script>window.location.href = '/dekripsi'</script>";
                             } else {
                                 echo "<script>alert('Data Gagal Disimpan!')</script>";
                             }

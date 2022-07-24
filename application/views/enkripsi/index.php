@@ -2,7 +2,6 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <!-- <?php var_dump($pengguna); ?> -->
     <!-- /.card-header -->
 
     <!-- /.card-header -->
@@ -14,7 +13,23 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" enctype="multipart/form-data">
+            <?php echo validation_errors(); ?>
+
+            <?php echo form_open_multipart('/enkripsi/import'); ?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nomor RT</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="no_rt" class="form-control" minlength="1" maxlength="4" placeholder="Nomor RT" value="<?= set_value('no_rt'); ?>">
+                        <small class="form-text text-danger"><?= form_error('no_rt')  ?></small>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Jumlah Orang</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="jml_org" class="form-control" minlength="1" maxlength="8" placeholder="Jumlah Orang" value="<?= set_value('jml_org'); ?>">
+                        <small class="form-text text-danger"><?= form_error('jml_org')  ?></small>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Input File</label>
                     <div class="col-sm-10">
@@ -22,21 +37,14 @@
                         <?php if (isset($pesan)) echo $pesan ?>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Masukkan Kunci</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" minlength="8" placeholder="Password" value="<?= set_value('password'); ?>">
-                        <small class="form-text text-danger"><?= form_error('password')  ?></small>
-                    </div>
-                </div>
+                <input type="hidden" name="password" class="form-control" minlength="8" placeholder="Password" value="<?= strtotime("now") ?>">
 
                 <!-- <div class="card-footer"> -->
                 <button type="submit" formaction="<?= base_url('Enkripsi/import') ?>" class="btn btn-info"><i class="fas fa-lock"></i> Enkripsi</button>
                 <button type="submit" formaction="<?= base_url('Enkripsi/process') ?>" class="btn btn-info"><i class="fas fa-fw fa-sync"></i> Proses</button>
-                <!-- <p><a href="<?= base_url('Pdfview'); ?>">PDF</p> -->
                 <!-- </div> -->
                 <!-- /.card-footer -->
-            </form>
+            <?= form_close() ?>
         </div>
     </div>
 

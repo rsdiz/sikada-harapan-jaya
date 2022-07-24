@@ -11,6 +11,7 @@ class Dekripsi extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Dekripsi_model');
+        $this->load->helper('date');
     }
 
     public function index()
@@ -20,8 +21,7 @@ class Dekripsi extends CI_Controller
         $data['user'] = $this->db->get_where('users', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['dekripsi'] = $this->Dekripsi_model->getAllDekripsi();
-        $data['file'] = $this->Dekripsi_model->getAllFile($data['user']['id_user']);
+        $data['file'] = $this->Dekripsi_model->getAllDekripsi();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -64,62 +64,38 @@ class Dekripsi extends CI_Controller
 
         $data['data'] = $data_file;
 
-        $this->form_validation->set_rules('nama_file', 'Nama File Awal', 'required');
-        $this->form_validation->set_rules('nama_file_enkrip', 'Nama File Enkripsi', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
+        $plaintext = "";
+        $ciphertext = "";
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('Dekripsi/dekrip', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $plaintext = "";
-            $ciphertext = "";
+        $this->load->library('DES');
+        $path = "assets/file_encript/" . $data_file['nama_file_enkrip'];
 
-            $password = $this->input->post('password');
+        $bin_ciphertext = (string) file_get_contents($path);
+        $arr_ciphertext = str_split($bin_ciphertext, 64);
 
-            if ($data_file['password'] == $password) {
-                $this->load->library('DES');
-                $path = "assets/file_encript/" . $this->input->post('nama_file_enkrip');
+        $desModule = new DES();
 
-                $bin_ciphertext = (string) file_get_contents($path);
-                $arr_ciphertext = str_split($bin_ciphertext, 64);
-
-                $desModule = new DES();
-
-                foreach ($arr_ciphertext as $i) {
-                    $decrypt = $desModule->decrypt($i, $password);
-                    $plaintext .= $desModule->read_bin($decrypt);
-                    $ciphertext .= $desModule->read_bin($i);
-                }
-
-                $this->load->library('Pdfgenerator');
-                $dt['plaintext'] = $plaintext;
-
-                $new_plaintext = mb_convert_encoding($plaintext, 'UTF-8', 'ASCII');
-
-                $html = ob_get_contents();
-                ob_end_clean();
-
-                $pdfgenerator = new Pdfgenerator();
-                $pdfgenerator->generate($new_plaintext, $data_file['nama_file'], "A4", "landscape", TRUE);
-                $pdfgenerator->loadHtml($html);
-                $pdfgenerator->setPaper('A4', 'landscape');
-                $pdfgenerator->render();
-                $pdfgenerator->stream($data_file['nama_file'], array('Attachment' => 0));
-                exit();
-            } else {
-                $data['pesan'] = '<div class="alert alert-danger" role="alert"> Password salah</div>';
-
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/sidebar', $data);
-                $this->load->view('templates/topbar', $data);
-                $this->load->view('Dekripsi/dekrip', $data);
-                $this->load->view('templates/footer');
-            }
+        foreach ($arr_ciphertext as $i) {
+            $decrypt = $desModule->decrypt($i, $data_file['createdAt']);
+            $plaintext .= $desModule->read_bin($decrypt);
+            $ciphertext .= $desModule->read_bin($i);
         }
+
+        $this->load->library('Pdfgenerator');
+        $dt['plaintext'] = $plaintext;
+
+        $new_plaintext = mb_convert_encoding($plaintext, 'UTF-8', 'ASCII');
+
+        $html = ob_get_contents();
+        ob_end_clean();
+
+        $pdfgenerator = new Pdfgenerator();
+        $pdfgenerator->generate($new_plaintext, $data_file['nama_file'], "A4", "landscape", TRUE);
+        $pdfgenerator->loadHtml($html);
+        $pdfgenerator->setPaper('A4', 'landscape');
+        $pdfgenerator->render();
+        $pdfgenerator->stream($data_file['nama_file'], array('Attachment' => 0));
+        exit();
     }
 
     public function hapus($id_file)

@@ -3,7 +3,7 @@ class Dekripsi_model extends CI_Model
 {
     public function getAllDekripsi()
     {
-        return $this->db->get('users')->result_array();
+        return $this->db->get('file')->result_array();
     }
 
     public function getAllFile($id_user)

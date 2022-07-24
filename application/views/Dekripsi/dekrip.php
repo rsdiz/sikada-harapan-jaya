@@ -35,15 +35,6 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Masukkan Kunci</label>
-                    <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control mb-3" placeholder="Password">
-                        <?php if (isset($pesan)) echo $pesan ?>
-                    </div>
-                </div>
-
-
             </div>
             <input type="hidden" name="tanggal" value="<?= date('d-m-Y', strtotime($data['createdAt'])); ?>">
 
