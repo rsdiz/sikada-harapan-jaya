@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2022 at 06:26 AM
+-- Generation Time: Jul 24, 2022 at 03:07 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -39,6 +39,7 @@ CREATE TABLE `access_menu` (
 --
 
 INSERT INTO `access_menu` (`id`, `role_id`, `menu_id`) VALUES
+(1, 1, 1),
 (2, 2, 2);
 
 -- --------------------------------------------------------
@@ -50,20 +51,13 @@ INSERT INTO `access_menu` (`id`, `role_id`, `menu_id`) VALUES
 CREATE TABLE `file` (
   `id_file` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `nomor_rt` int(11) NOT NULL,
+  `jumlah_orang` int(11) NOT NULL,
   `nama_file` varchar(100) NOT NULL,
   `nama_file_enkrip` varchar(100) NOT NULL,
-  `password` int(11) NOT NULL,
-  `createdAt` datetime DEFAULT CURRENT_TIMESTAMP
+  `password` varchar(128) NOT NULL,
+  `createdAt` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `file`
---
-
-INSERT INTO `file` (`id_file`, `id_user`, `nama_file`, `nama_file_enkrip`, `password`, `createdAt`) VALUES
-(5, 7, '64103-ani.pdf', '64103-ani.txt', 12345678, '2022-07-19 10:04:33'),
-(7, 7, '9659-coba.pdf', '9659-coba.txt', 12345678, '2022-07-19 10:29:10'),
-(8, 7, '10957-Menulis .pdf', '10957-Menulis .txt', 12345678, '2022-07-19 10:35:56');
 
 -- --------------------------------------------------------
 
@@ -81,6 +75,7 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `menu`) VALUES
+(1, 'Decryptor'),
 (2, 'Admin');
 
 -- --------------------------------------------------------
@@ -99,6 +94,7 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id_role`, `role`) VALUES
+(1, 'Decryptor'),
 (2, 'Administrator');
 
 -- --------------------------------------------------------
@@ -121,7 +117,11 @@ CREATE TABLE `sub_menu` (
 --
 
 INSERT INTO `sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(4, 2, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1);
+(1, 1, 'Dashboard', 'user', 'fas fa-fw fa-tachometer-alt', 1),
+(2, 1, 'Dekripsi', 'dekripsi', 'fas fa-fw fa-unlock', 1),
+(4, 2, 'Dashboard', 'admin', 'fas fa-fw fa-tachometer-alt', 1),
+(5, 2, 'Enkripsi', 'enkripsi', 'fas fa-fw fa-lock', 1),
+(6, 2, 'Dekripsi', 'dekripsi', 'fas fa-fw fa-unlock', 1);
 
 -- --------------------------------------------------------
 
@@ -145,8 +145,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(4, 'Riesmi', 'senjani@gmail.com', '', '$2y$10$/Ixy9CEi7agEDRcpP3xpfeFg3LUq1666NA8IIrQPRmmBR4Wwn63Ja', 2, 1, 1616647011),
-(7, 'Senjani', 'dellariesmy@yahoo.com', 'user.jpg', '$2y$10$Gfo82BrIDXfRVBmBLj/NoOJTqrhg0vL5rhnjrkQOn2sE7pRcKWtTi', 2, 1, 1618211146);
+(4, 'Senjani', 'senjani@gmail.com', '', '$2y$10$B1OE5usfzZVmN3iSpxBArO0mD5uvoHUeNgkpDjNFT8ihKvXy4764i', 2, 1, 1616647011),
+(7, 'Della', 'dellariesmy@yahoo.com', '', '$2y$10$15l7N9Nt7i.vE1R5ZNAfUucXhZ8WMxYKjC0q0TdvmD7k2.JuMhtLy', 1, 1, 1618211146);
 
 --
 -- Indexes for dumped tables
@@ -197,7 +197,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
