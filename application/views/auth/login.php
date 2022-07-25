@@ -54,7 +54,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    Belum punya akun? <a href="register">Daftar</a>
+                                    Belum punya akun? <a href="/auth/register">Daftar</a>
                                 </div>
                                 <!-- <div class="text-center">
                                     <a class="small" href="<?= base_url('auth/register'); ?>">Buat Akun Baru ?</a>
